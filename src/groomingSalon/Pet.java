@@ -34,4 +34,9 @@ public class Pet {
     public void setOwner(String owner) {
         this.owner = owner;
     }
+
+    @Override
+    public String toString(){
+        return String.format("%s %d - (%s)",name, age, owner);
+    }
 }
