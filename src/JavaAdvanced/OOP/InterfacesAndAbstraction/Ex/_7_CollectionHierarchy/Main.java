@@ -4,28 +4,30 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         AddCollection addCollection = new AddCollection();
         AddRemovableCollection addRemovableCollection = new AddRemovableCollection();
         MyListImpl myList = new MyListImpl();
 
-        String[] input = scanner.nextLine().split("\\s+");
+        String[] input = sc.nextLine().split("\\s+");
 
-        printIndexes(addCollection, input);
-        printIndexes(addRemovableCollection, input);
-        printIndexes(myList, input);
-        int itemsToRemove = Integer.parseInt(scanner.nextLine());
-        printRemove(addRemovableCollection, itemsToRemove);
-        printRemove(myList, itemsToRemove);
+        indexPrint(addCollection, input);
+        indexPrint(addRemovableCollection, input);
+        indexPrint(myList, input);
+
+        int removeCount = Integer.parseInt(sc.nextLine());
+
+        removedPrint(addRemovableCollection, removeCount);
+        removedPrint(myList, removeCount);
     }
-    private static void printRemove(AddRemovable collection, int rotation) {
+    private static void removedPrint(AddRemovable collection, int rotation) {
         for (int i = 0; i < rotation; i++) {
             System.out.print(collection.remove() + " ");
         }
         System.out.println();
     }
-    private static void printIndexes(Addable addCollection, String[] input) {
+    private static void indexPrint(Addable addCollection, String[] input) {
         for (String item : input) {
             System.out.print(addCollection.add(item) + " ");
         }
