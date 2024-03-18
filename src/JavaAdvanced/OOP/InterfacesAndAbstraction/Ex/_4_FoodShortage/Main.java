@@ -22,19 +22,19 @@ public class Main {
             }
         }
 
-        String command = sc.nextLine();
-        while (!"End".equals(command)) {
+        String buyer = sc.nextLine();
+        while (!"End".equals(buyer)) {
             for (Rebel rebel : rebels) {
-                if (rebel.getName().equals(command)) {
+                if (rebel.getName().equals(buyer)) {
                     rebel.buyFood();
                 }
             }
             for (Citizen citizen : citizens) {
-                if (citizen.getName().equals(command)) {
+                if (citizen.getName().equals(buyer)) {
                     citizen.buyFood();
                 }
             }
-            command = sc.nextLine();
+            buyer = sc.nextLine();
         }
 
         int totalFood = 0;
@@ -45,6 +45,6 @@ public class Main {
             totalFood += citizen.getFood();
         }
 
-        System.out.printf("%d%n", totalFood);
+        System.out.println(totalFood);
     }
 }
