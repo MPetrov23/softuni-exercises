@@ -1,18 +1,24 @@
-package JavaAdvanced.OOP.Polymorphism.Ex._1_Vehicles;
+package JavaAdvanced.OOP.Polymorphism.Ex._2_VehiclesExtension;
 
 import java.text.DecimalFormat;
 
-public class Vehicle implements Drivable{
+public class Vehicle implements Drivable {
     private double fuelQuantity;
     private double fuelConsumptionPerKm;
+    private double maxFuelQuantity;
 
-    public Vehicle(double fuelQuantity, double fuelConsumptionPerKm) {
+    public Vehicle(double fuelQuantity, double fuelConsumptionPerKm, double maxFuelQuantity) {
         this.fuelQuantity = fuelQuantity;
         this.fuelConsumptionPerKm = fuelConsumptionPerKm;
+        this.maxFuelQuantity = fuelQuantity;
     }
 
     public double getFuelQuantity() {
         return fuelQuantity;
+    }
+
+    public void setFuelQuantity(double fuelQuantity) {
+        this.fuelQuantity = fuelQuantity;
     }
 
     public double getFuelConsumptionPerKm() {
@@ -21,6 +27,14 @@ public class Vehicle implements Drivable{
 
     public void setFuelConsumptionPerKm(double fuelConsumptionPerKm) {
         this.fuelConsumptionPerKm = fuelConsumptionPerKm;
+    }
+
+    public double getMaxFuelQuantity() {
+        return maxFuelQuantity;
+    }
+
+    public void setMaxFuelQuantity(double maxFuelQuantity) {
+        this.maxFuelQuantity = maxFuelQuantity;
     }
 
     @Override
@@ -37,6 +51,14 @@ public class Vehicle implements Drivable{
 
     @Override
     public void refuel(double liters) {
-        this.fuelQuantity +=liters;
+        if(liters>0){
+            if (liters <= this.maxFuelQuantity - this.fuelQuantity) {
+                this.fuelQuantity += liters;
+            } else {
+                System.out.printf("Cannot fit fuel in tank%n");
+            }
+        }else{
+            System.out.println("Fuel must be a positive number");
+        }
     }
 }
