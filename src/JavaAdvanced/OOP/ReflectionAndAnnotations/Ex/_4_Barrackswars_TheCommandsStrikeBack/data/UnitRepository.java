@@ -40,7 +40,11 @@ public class UnitRepository implements Repository {
 	}
 
 	public void removeUnit(String unitType) throws ExecutionControl.NotImplementedException {
-		// TODO: implement for problem 4
-		throw new ExecutionControl.NotImplementedException("message");
+		if (amountOfUnits.containsKey(unitType) && amountOfUnits.get(unitType) >= 1) {
+			int currentCount = amountOfUnits.get(unitType);
+			amountOfUnits.put(unitType, currentCount - 1);
+		} else {
+			throw new IllegalArgumentException("No such units in repository.");
+		}
 	}
 }

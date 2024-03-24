@@ -4,14 +4,18 @@ package JavaAdvanced.OOP.ReflectionAndAnnotations.Ex._4_Barrackswars_TheCommands
 import JavaAdvanced.OOP.ReflectionAndAnnotations.Ex._3_Barrackswars_ANewFactory.interfaces.Repository;
 import JavaAdvanced.OOP.ReflectionAndAnnotations.Ex._3_Barrackswars_ANewFactory.interfaces.Unit;
 import JavaAdvanced.OOP.ReflectionAndAnnotations.Ex._3_Barrackswars_ANewFactory.interfaces.UnitFactory;
+import JavaAdvanced.OOP.ReflectionAndAnnotations.Ex._4_Barrackswars_TheCommandsStrikeBack.interfaces.Executable;
 import jdk.jshell.spi.ExecutionControl;
 
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 
 public class Engine implements Runnable {
+	private static final String COMMAND = "JavaAdvanced.OOP.ReflectionAndAnnotations.Ex._3_Barrackswars_ANewFactory.core.commands.";
 
 	private Repository repository;
 	private UnitFactory unitFactory;
@@ -37,45 +41,26 @@ public class Engine implements Runnable {
 				System.out.println(result);
 			} catch (RuntimeException e) {
 				System.out.println(e.getMessage());
-			} catch (IOException | ExecutionControl.NotImplementedException e) {
+			} catch (IOException e) {
 				e.printStackTrace();
+			} catch (ExecutionControl.NotImplementedException e) {
+				throw new RuntimeException(e);
 			}
 		}
 	}
 
-	// TODO: refactor for problem 4
 	private String interpretCommand(String[] data, String commandName) throws ExecutionControl.NotImplementedException {
-		String result;
-		switch (commandName) {
-			case "add":
-				result = this.addUnitCommand(data);
-				break;
-			case "report":
-				result = this.reportCommand(data);
-				break;
-			case "fight":
-				result = this.fightCommand(data);
-				break;
-			default:
-				throw new RuntimeException("Invalid command!");
+		Executable command = null;
+		commandName = Character.toUpperCase(commandName.charAt(0)) + commandName.substring(1);
+
+		try {
+			Class<?> clas = Class.forName(COMMAND + commandName);
+			Constructor<?> constructor = clas.getDeclaredConstructor(String[].class, Repository.class, UnitFactory.class);
+			command = (Executable) constructor.newInstance(data, repository, unitFactory);
+		} catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException |
+				 InvocationTargetException e) {
+			throw new RuntimeException(e);
 		}
-		return result;
-	}
-
-	private String reportCommand(String[] data) {
-		String output = this.repository.getStatistics();
-		return output;
-	}
-
-	private String addUnitCommand(String[] data) throws ExecutionControl.NotImplementedException {
-		String unitType = data[1];
-		Unit unitToAdd = this.unitFactory.createUnit(unitType);
-		this.repository.addUnit(unitToAdd);
-		String output = unitType + " added!";
-		return output;
-	}
-	
-	private String fightCommand(String[] data) {
-		return "fight";
+		return command.execute();
 	}
 }
