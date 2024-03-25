@@ -42,19 +42,16 @@ public class Engine implements Runnable {
 				System.out.println(e.getMessage());
 			} catch (IOException e) {
 				e.printStackTrace();
-			} catch (ExecutionControl.NotImplementedException e) {
-				throw new RuntimeException(e);
 			}
 		}
 	}
 
-	private String interpretCommand(String[] data, String commandName) throws ExecutionControl.NotImplementedException {
+	private String interpretCommand(String[] data, String commandName) {
 		Executable command = null;
 		commandName = Character.toUpperCase(commandName.charAt(0)) + commandName.substring(1);
-
 		try {
-			Class<?> clas = Class.forName(COMMAND + commandName);
-			Constructor<?> constructor = clas.getDeclaredConstructor(String[].class, Repository.class, UnitFactory.class);
+			Class<?> clazz = Class.forName(COMMAND + commandName);
+			Constructor<?> constructor = clazz.getDeclaredConstructor(String[].class, Repository.class, UnitFactory.class);
 			command = (Executable) constructor.newInstance(data, repository, unitFactory);
 		} catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException |
 				 InvocationTargetException e) {

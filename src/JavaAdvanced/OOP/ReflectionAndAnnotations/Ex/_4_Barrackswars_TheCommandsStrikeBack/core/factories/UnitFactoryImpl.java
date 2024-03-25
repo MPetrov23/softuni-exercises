@@ -10,18 +10,19 @@ import java.lang.reflect.InvocationTargetException;
 public class UnitFactoryImpl implements UnitFactory {
 
 	private static final String UNITS_PACKAGE =
-			"JavaAdvanced.OOP.ReflectionAndAnnotations.Ex._4_Barrackswars_TheCommandsStrikeBack.models.units.";
+			"JavaAdvanced.OOP.ReflectionAndAnnotations.Ex._4_Barrackswars_TheCommandsStrikeBack.units.";
 
 
 	@Override
 	public Unit createUnit(String unitType) {
+		Unit unit = null;
 		try {
 			Class<?> clas = Class.forName(UNITS_PACKAGE + unitType);
-			Unit unit = clas.getDeclaredConstructor().newInstance();
+			unit = (Unit) clas.getDeclaredConstructor().newInstance();
 		} catch (ClassNotFoundException | NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
 			System.out.println(e.getMessage());
 		}
-		
-		return null;
+
+		return unit;
 	}
 }
