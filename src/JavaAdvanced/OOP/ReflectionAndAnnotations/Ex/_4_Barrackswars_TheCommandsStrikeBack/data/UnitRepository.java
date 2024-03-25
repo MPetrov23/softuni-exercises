@@ -1,9 +1,8 @@
 package JavaAdvanced.OOP.ReflectionAndAnnotations.Ex._4_Barrackswars_TheCommandsStrikeBack.data;
 
 
-import JavaAdvanced.OOP.ReflectionAndAnnotations.Ex._3_Barrackswars_ANewFactory.interfaces.Repository;
-import JavaAdvanced.OOP.ReflectionAndAnnotations.Ex._3_Barrackswars_ANewFactory.interfaces.Unit;
-import jdk.jshell.spi.ExecutionControl;
+import JavaAdvanced.OOP.ReflectionAndAnnotations.Ex._4_Barrackswars_TheCommandsStrikeBack.interfaces.Repository;
+import JavaAdvanced.OOP.ReflectionAndAnnotations.Ex._4_Barrackswars_TheCommandsStrikeBack.interfaces.Unit;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -16,6 +15,7 @@ public class UnitRepository implements Repository {
 		this.amountOfUnits = new TreeMap<>();
 	}
 
+	@Override
 	public void addUnit(Unit unit) {
 		String unitType = unit.getClass().getSimpleName();
 		if (!this.amountOfUnits.containsKey(unitType)) {
@@ -25,6 +25,7 @@ public class UnitRepository implements Repository {
 		int newAmount = this.amountOfUnits.get(unitType) + 1;
 		this.amountOfUnits.put(unitType, newAmount);
 	}
+
 
 	public String getStatistics() {
 		StringBuilder statBuilder = new StringBuilder();
@@ -39,7 +40,7 @@ public class UnitRepository implements Repository {
 		return statBuilder.toString();
 	}
 
-	public void removeUnit(String unitType) throws ExecutionControl.NotImplementedException {
+	public void removeUnit(String unitType) {
 		if (amountOfUnits.containsKey(unitType) && amountOfUnits.get(unitType) >= 1) {
 			int currentCount = amountOfUnits.get(unitType);
 			amountOfUnits.put(unitType, currentCount - 1);

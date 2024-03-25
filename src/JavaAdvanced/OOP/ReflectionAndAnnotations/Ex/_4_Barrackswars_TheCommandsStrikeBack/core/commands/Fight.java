@@ -5,7 +5,7 @@ import JavaAdvanced.OOP.ReflectionAndAnnotations.Ex._4_Barrackswars_TheCommandsS
 
 public class Fight extends Command{
 
-    protected Fight(String[] data, Repository repository, UnitFactory unitFactory) {
+    public Fight(String[] data, Repository repository, UnitFactory unitFactory) {
         super(data, repository, unitFactory);
     }
 

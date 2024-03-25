@@ -4,7 +4,7 @@ import JavaAdvanced.OOP.ReflectionAndAnnotations.Ex._4_Barrackswars_TheCommandsS
 import JavaAdvanced.OOP.ReflectionAndAnnotations.Ex._4_Barrackswars_TheCommandsStrikeBack.interfaces.UnitFactory;
 
 public class Retire extends Command{
-    protected Retire(String[] data, Repository repository, UnitFactory unitFactory) {
+    public Retire(String[] data, Repository repository, UnitFactory unitFactory) {
         super(data, repository, unitFactory);
     }
 
