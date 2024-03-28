@@ -1,4 +1,4 @@
-package JavaAdvanced.OOP.SOLID._1_SingleResponsibility;
+package JavaAdvanced.OOP.SOLID._1_SingleResponsibility._1_DrawingShape;
 
 import solidLab.p01_SingleResponsibility.p01_DrawingShape.interfaces.DrawingRepository;
 import solidLab.p01_SingleResponsibility.p01_DrawingShape.interfaces.Rengerer;
