@@ -1,8 +1,7 @@
 package JavaAdvanced.OOP.Polymorphism.Lab._2_Shapes;
 
-import JavaAdvanced.Advanced.IteratorsAndComparators._5_ComparingObjects.Main;
 
-public class Circle extends  Shape{
+public class Circle extends Shape{
     private double radius;
 
     public Circle(double radius) {

@@ -28,7 +28,7 @@ public class Main {
                         System.out.printf("%s\n", cat);
                     break;
                     case "Kitten" :
-                        Kittens kitten = new Kittens(name, Integer.parseInt(age));
+                        Kitten kitten = new Kitten(name, Integer.parseInt(age));
                         System.out.printf("%s\n", kitten);
                     break;
                     case "Tomcat" :

@@ -32,7 +32,7 @@ public class Vehicle implements Drivable{
         }
         this.fuelQuantity-=neededFuel;
         DecimalFormat decimalFormat = new DecimalFormat("##.##");
-        return String.format("%s travelled %s", this.getClass().getSimpleName(), decimalFormat.format(distance));
+        return String.format("%s travelled %s km", this.getClass().getSimpleName(), decimalFormat.format(distance));
     }
 
     @Override

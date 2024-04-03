@@ -10,7 +10,7 @@ public class Vehicle implements Drivable {
     public Vehicle(double fuelQuantity, double fuelConsumptionPerKm, double maxFuelQuantity) {
         this.fuelQuantity = fuelQuantity;
         this.fuelConsumptionPerKm = fuelConsumptionPerKm;
-        this.maxFuelQuantity = fuelQuantity;
+        this.maxFuelQuantity =  maxFuelQuantity;
     }
 
     public double getFuelQuantity() {
@@ -46,7 +46,7 @@ public class Vehicle implements Drivable {
         }
         this.fuelQuantity-=neededFuel;
         DecimalFormat decimalFormat = new DecimalFormat("##.##");
-        return String.format("%s travelled %s", this.getClass().getSimpleName(), decimalFormat.format(distance));
+        return String.format("%s travelled %s km", this.getClass().getSimpleName(), decimalFormat.format(distance));
     }
 
     @Override
