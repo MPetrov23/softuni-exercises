@@ -1,8 +1,8 @@
 package JavaAdvanced.OOP.SOLID._2_Open_Colosed._2_DrawingShape;
 
-import solidLab.p01_SingleResponsibility.p01_DrawingShape.interfaces.DrawingManager;
-import solidLab.p01_SingleResponsibility.p01_DrawingShape.interfaces.Shape;
 
+import JavaAdvanced.OOP.SOLID._2_Open_Colosed._2_DrawingShape.interfaces.DrawingManager;
+import JavaAdvanced.OOP.SOLID._2_Open_Colosed._2_DrawingShape.interfaces.Shape;
 
 public class DrawingManagerImpl implements DrawingManager {
 

@@ -1,8 +1,9 @@
 package JavaAdvanced.OOP.SOLID._1_SingleResponsibility._1_DrawingShape;
 
-import solidLab.p01_SingleResponsibility.p01_DrawingShape.interfaces.DrawingRepository;
-import solidLab.p01_SingleResponsibility.p01_DrawingShape.interfaces.Rengerer;
-import solidLab.p01_SingleResponsibility.p01_DrawingShape.interfaces.Shape;
+
+import JavaAdvanced.OOP.SOLID._1_SingleResponsibility._1_DrawingShape.interfaces.DrawingRepository;
+import JavaAdvanced.OOP.SOLID._1_SingleResponsibility._1_DrawingShape.interfaces.Rengerer;
+import JavaAdvanced.OOP.SOLID._1_SingleResponsibility._1_DrawingShape.interfaces.Shape;
 
 public class Rectangle implements Shape {
     private double width;
@@ -33,9 +34,9 @@ public class Rectangle implements Shape {
        return this.height*this.width;
     }
 
+
     @Override
     public void draw(Rengerer rengerer, DrawingRepository drawingRepository) {
-        rengerer.render(drawingRepository,this);
 
     }
 }

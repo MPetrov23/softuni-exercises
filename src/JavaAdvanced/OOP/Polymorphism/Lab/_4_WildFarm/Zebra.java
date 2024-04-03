@@ -1,3 +1,4 @@
+package JavaAdvanced.OOP.Polymorphism.Lab._4_WildFarm;
 
 public class Zebra extends Mammal{
     public Zebra(String animalName, String animalType, double animalWeight, String livingRegion) {
