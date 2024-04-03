@@ -2,10 +2,10 @@ package JavaAdvanced.OOP.Inheritance.Lab._4_StackOfStrings;
 
 public class Main {
     public static void main(String[] args) {
-        Stack stack = new Stack();
+        StackOfStrings stack = new StackOfStrings();
 
         stack.push("one");
-        stack.push("tow");
+        stack.push("two");
         stack.push("three");
 
         System.out.println(stack.isEmpty());

@@ -3,10 +3,10 @@ package JavaAdvanced.OOP.Inheritance.Lab._4_StackOfStrings;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Stack {
+public class StackOfStrings {
     private List<String> data;
 
-    public Stack() {
+    public StackOfStrings() {
         this.data = new ArrayList<>();
     }
 

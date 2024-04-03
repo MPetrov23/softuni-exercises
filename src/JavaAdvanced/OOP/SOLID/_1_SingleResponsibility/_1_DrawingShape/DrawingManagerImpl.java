@@ -1,10 +1,10 @@
 package JavaAdvanced.OOP.SOLID._1_SingleResponsibility._1_DrawingShape;
 
-import solidLab.p01_SingleResponsibility.p01_DrawingShape.interfaces.DrawingManager;
-import solidLab.p01_SingleResponsibility.p01_DrawingShape.interfaces.DrawingRepository;
-import solidLab.p01_SingleResponsibility.p01_DrawingShape.interfaces.Rengerer;
-import solidLab.p01_SingleResponsibility.p01_DrawingShape.interfaces.Shape;
 
+import JavaAdvanced.OOP.SOLID._1_SingleResponsibility._1_DrawingShape.interfaces.DrawingManager;
+import JavaAdvanced.OOP.SOLID._1_SingleResponsibility._1_DrawingShape.interfaces.DrawingRepository;
+import JavaAdvanced.OOP.SOLID._1_SingleResponsibility._1_DrawingShape.interfaces.Rengerer;
+import JavaAdvanced.OOP.SOLID._1_SingleResponsibility._1_DrawingShape.interfaces.Shape;
 
 public class DrawingManagerImpl implements DrawingManager {
 
