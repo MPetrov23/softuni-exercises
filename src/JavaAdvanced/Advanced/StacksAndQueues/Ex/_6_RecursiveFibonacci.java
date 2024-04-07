@@ -18,6 +18,7 @@ public class _6_RecursiveFibonacci {
    if(n<2){
        return 1;
    }
+
    if(memory[n] != 0){
        return memory[n];
         }
